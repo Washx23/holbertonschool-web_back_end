@@ -37,6 +37,7 @@ async def wait_n(n: int, max_delay: int = 10) -> List[float]:
 
 
 async def main():
+    """module"""
     n = 5
     max_delay = 10
     delays = await wait_n(n, max_delay)
