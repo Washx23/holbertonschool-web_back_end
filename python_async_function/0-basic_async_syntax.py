@@ -23,6 +23,7 @@ async def wait_random(max_delay: int = 10) -> float:
 
 
 async def main() -> None:
+    """module document"""
     random_delay: float = await wait_random()
     print(f"Random delay: {random_delay:.2f} seconds")
 
