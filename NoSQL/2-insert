@@ -1,5 +1,8 @@
-// my comment
-use my_db
+// my document
 var newItem = { name: "Holberton school" }
-db.school.insertOne(newItem)
-db.school.find()
+
+var result = db.school.insertOne(newItem)
+
+printjson(result)
+
+quit()
