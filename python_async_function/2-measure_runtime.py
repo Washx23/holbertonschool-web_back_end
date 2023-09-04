@@ -1,40 +1,28 @@
 #!/usr/bin/env python3
-"""module"""
-
+""" Measure runtime for wait_n """
 
 import asyncio
 import time
 wait_n = __import__('1-concurrent_coroutines').wait_n
 
-
-async def measure_time(n: int, max_delay: int) -> float:
-    """
-    Measure the total execution time for 
-    wait_n(n, max_delay) and return the average time per task.
-
-    Args:
-        n (int): Number of times to spawn wait_random.
-        max_delay (int): The maximum delay in seconds.
-
-    Returns:
-        float: Average execution time per task.
-    """
+def measure_time(n: int = 0, max_delay: int = 10) -> float:
+    """ Measure the time taken for wait_n to complete n times """
     start_time = time.time()
-
-    await wait_n(n, max_delay)
-
+    
+    # Run wait_n n times
+    for _ in range(n):
+        asyncio.run(wait_n(1, max_delay))
+    
     end_time = time.time()
-    total_time = end_time - start_time
-
-    return total_time / n
-
-
-async def main():
-    n = 5
-    max_delay = 10
-
-    average_time = await measure_time(n, max_delay)
-    print(f"Average time per task: {average_time:.2f} seconds")
+    
+    # Calculate the average time taken per execution
+    average_time = (end_time - start_time) / n if n > 0 else 0.0
+    
+    return average_time
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    # Example usage:
+    num_executions = 5
+    max_delay = 10
+    average_runtime = measure_time(num_executions, max_delay)
+    print(f"Average runtime per execution: {average_runtime:.2f} seconds")
