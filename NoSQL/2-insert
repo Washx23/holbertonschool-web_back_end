@@ -1,8 +1,10 @@
-// my document
-var newItem = { name: "Holberton school" }
+// comment
 
-var result = db.school.insertOne(newItem)
+let query = {
+    name: "Holberton school"
+}
 
-printjson(result)
+db.school.insert(query)
 
-quit()
+
+
