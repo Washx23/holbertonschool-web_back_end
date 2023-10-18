@@ -1,3 +1,2 @@
-// comment
-
-db.school.find({name: "Holberton school"})
+//Task 4
+db.school.find({ name:"Holberton school" })

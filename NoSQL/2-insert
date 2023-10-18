@@ -1,10 +1,2 @@
-// comment
-
-let query = {
-    name: "Holberton school"
-}
-
-db.school.insert(query)
-
-
-
+//Task 2
+db.school.insert({name : "Holberton school" })

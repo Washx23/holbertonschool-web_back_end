@@ -1,15 +1,2 @@
-
-// comment
-
-const result = db.school.updateMany(
-    { name: "Holberton school" },
-    {
-        $set: { address: "972 Mission street" }
-    }
-);
-
-if (result.matchedCount > 0 && result.modifiedCount > 0) {
-    print(`WriteResult({ "nMatched" : ${result.matchedCount}, "nUpserted" : 0, "nModified" : ${result.modifiedCount} })`);
-} else {
-    print(`WriteResult({ "nMatched" : ${result.matchedCount}, "nUpserted" : 0, "nModified" : ${result.modifiedCount} })`);
-}
+//Task 6
+db.school.update({name:"Holberton school"}, {"$set": {"address": "972 Mission street"}}, {multi: true})

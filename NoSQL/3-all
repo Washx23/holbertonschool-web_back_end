@@ -1,3 +1,2 @@
-// comment
-
+//Task 3
 db.school.find()
